@@ -1,0 +1,1 @@
+import{defineConfig}from'vite';import react from'@vitejs/plugin-react';export default defineConfig({plugins:[react()],build:{lib:{entry:'src/module/index.ts',name:'TinyDeadline',fileName:'tiny-deadline'},rollupOptions:{external:['react','react/jsx-runtime','lucide-react']},cssFileName:'tiny-deadline'}}});
