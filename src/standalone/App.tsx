@@ -1,1 +1,32 @@
-import{useMemo,useState}from'react';import{DeadlineWorkspace}from'../components/DeadlineWorkspace';const P='tiny-deadline:';const s={async get<T>(k:string){const r=localStorage.getItem(P+k);return r?JSON.parse(r)as T:null},async set<T>(k:string,v:T){localStorage.setItem(P+k,JSON.stringify(v))}};export default function App(){const[l,setL]=useState<'fa'|'en'>('fa');const st=useMemo(()=>s,[]);return <main><nav><strong>Tiny Deadline</strong><button onClick={()=>setL(x=>x==='fa'?'en':'fa')}>{l==='fa'?'EN':'FA'}</button></nav><DeadlineWorkspace locale={l} direction={l==='fa'?'rtl':'ltr'} storage={st}/></main>
+import { useMemo, useState } from 'react';
+import { DeadlineWorkspace } from '../components/DeadlineWorkspace';
+
+const PREFIX = 'tiny-deadline:';
+
+const storage = {
+  async get<T>(key: string): Promise<T | null> {
+    const raw = localStorage.getItem(PREFIX + key);
+    return raw ? (JSON.parse(raw) as T) : null;
+  },
+  async set<T>(key: string, value: T): Promise<void> {
+    localStorage.setItem(PREFIX + key, JSON.stringify(value));
+  },
+};
+
+export default function App() {
+  const [locale, setLocale] = useState<'fa' | 'en'>('fa');
+  const stableStorage = useMemo(() => storage, []);
+  const direction = locale === 'fa' ? 'rtl' : 'ltr';
+
+  return (
+    <main dir={direction}>
+      <nav>
+        <strong>Tiny Deadline</strong>
+        <button type="button" onClick={() => setLocale((value) => (value === 'fa' ? 'en' : 'fa'))}>
+          {locale === 'fa' ? 'EN' : 'FA'}
+        </button>
+      </nav>
+      <DeadlineWorkspace locale={locale} direction={direction} storage={stableStorage} />
+    </main>
+  );
+}
