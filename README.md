@@ -1,54 +1,19 @@
-# Tiny Deadline — رادار موعدهای TinyManager
+# Tiny Deadline — رادار موعدها
 
-[🇮🇷 فارسی](README.md) · [🇬🇧 English](README.en.md)
+ماژول سبک TinyManager برای ثبت و مشاهده موعدهای نزدیک و عقب‌افتاده، بدون تقویم شلوغ.
 
-> یک نمای بسیار ساده برای اینکه مدیر بداند **امروز، چند روز آینده و موارد عقب‌افتاده** کدام‌اند؛ بدون تقویم شلوغ و بدون فرم‌های طولانی.
+## قابلیت‌های Alpha
 
-## وضعیت
+- ثبت سریع عنوان + زمان
+- پشتیبانی اولیه از عبارت‌های فارسی مثل «امروز»، «فردا»، «پس‌فردا» و نام روزهای هفته
+- پشتیبانی از `today`, `tomorrow`, `Tuesday` و سایر روزهای هفته در English
+- Standalone App و TinyManager Module package
+- Local-first storage
+- تکمیل موعد
+- اتصال اختیاری به `projectId` و منبع مرتبط
+- TypeScript declarations
+- تست Domain و GitHub Actions CI
 
-**Foundation — 0.1.0**
+در TinyManager اصلی، نمایش تاریخ فارسی از **Webtanan Jalali Date Engine** انجام می‌شود.
 
-این Repository اکنون قرارداد اولیه ماژول را دارد. قابلیت اجرایی هنوز منتشر نشده است.
-
-## فلسفه UX
-
-مدیر نباید برای ثبت یک موعد وارد چند صفحه شود. مسیر اصلی آینده:
-
-```text
-Tiny AI: «مهلت ارسال قرارداد پروژه آریا را برای سه‌شنبه بگذار»
-↓
-تشخیص پروژه + تاریخ
-↓
-پیش‌نمایش کوتاه
-↓
-تأیید
-↓
-ثبت موعد
-```
-
-در UI دستی نیز فقط اطلاعات ضروری ابتدا نمایش داده می‌شوند و جزئیات اختیاری با Progressive Disclosure باز می‌شوند.
-
-## قابلیت‌های برنامه‌ریزی‌شده
-
-- Today / Next 3 Days / Next 7 Days / Next 30 Days
-- Overdue
-- اتصال به Shared Projects و Shared People
-- تاریخ شمسی در فارسی و میلادی در انگلیسی
-- Dashboard Widget
-- Notification hooks
-- Backup / Export از طریق TinyManager Core
-- Tiny AI actions
-
-## Tiny AI Actions برنامه‌ریزی‌شده
-
-- `tiny-deadline.create`
-- `tiny-deadline.reschedule`
-- `tiny-deadline.complete`
-
-## معماری
-
-این ماژول با **TypeScript + React** ساخته خواهد شد و هم به‌صورت Standalone App و هم به‌صورت Module داخل [TinyManager](https://github.com/webtanan-sketch/tinymanager) اجرا می‌شود.
-
-## مجوز
-
-MIT
+نسخه: `0.1.0-alpha.1`
